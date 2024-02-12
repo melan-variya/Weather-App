@@ -51,7 +51,7 @@ function MainContainer() {
 
     return (
         <div id="maincontainer">
-            <h1 id="title" style={{ padding: "1vw", marginTop: "-10vh" }}>Weather App</h1>
+            <h1 id="title" style={{ padding: "1vw", marginTop: "-10vh", color:"white" }}>Weather App</h1>
             <div id="input">
                 <p id="temperature"></p>
                 <h3 id="discription"></h3>
