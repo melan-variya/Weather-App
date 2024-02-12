@@ -51,14 +51,14 @@ function MainContainer() {
 
     return (
         <div id="maincontainer">
-            <h1 id="title" style={{ padding: "1vw", marginTop: "-10vh", color:"white" }}>Weather App</h1>
+            <h1 id="title" style={{ padding: "1vw", marginTop: "-10vh", color:"Aqua" }}>Weather App</h1>
             <div id="input">
-                <p id="temperature"></p>
-                <h3 id="discription"></h3>
+                <p id="temperature" style={{color:"Aqua"}}></p>
+                <h3 id="discription" style={{color:"Aqua"}}></h3>
                 <img id="mainimgtage" src="/mainpage.webp" height={"100px"} width={"100px"}></img>
             </div>
 
-            <h2 id="h2tage">Find Weather of your city</h2>
+            <h2 id="h2tage" style={{color:"Aqua"}}>Find Weather of your city</h2>
             <div id="input">
                 
                 
@@ -68,26 +68,26 @@ function MainContainer() {
                         <button className="input 2" id="enter" onClick={ButtonHandle}>Enter</button>
                     </>) : 
                 <div>
-                <h2 id="weatherinfo"></h2>
+                <h2 id="weatherinfo" style={{color:"Aqua"}}></h2>
                 <div style={{display:"flex"}}>
                     <div>
                         <div style={{display:"flex", margin:"10px 20px 10px 10px"}}>
                             <img src="./sunrise.svg" id="sunriseimg"></img>
-                            <h3 id="sunrise"></h3>
+                            <h3 id="sunrise" style={{color:"Aqua"}}></h3>
                         </div>
                         <div style={{display:"flex", margin:"10px 10px 10px 10px"}}>
                             <img src="./humidity.svg" id="humidityimg"></img>
-                            <h3 id="humidity"></h3>
+                            <h3 id="humidity" style={{color:"Aqua"}}></h3>
                         </div>
                     </div>
                     <div>
                         <div style={{display:"flex", margin:"10px 10px 10px 10px"}}>
                             <img src="./wind.svg" id="windimg"></img>
-                            <h3 id="wind"></h3>
+                            <h3 id="wind" style={{color:"Aqua"}}></h3>
                         </div>
                         <div style={{display:"flex", margin:"10px 10px 10px 10px"}}>
                             <img src="./pressure.svg" id="pressureimg"></img>
-                            <h3 id="pressure"></h3>
+                            <h3 id="pressure" style={{color:"Aqua"}}></h3>
                         </div>
                     </div>
                 </div>
