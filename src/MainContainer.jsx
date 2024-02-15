@@ -15,7 +15,7 @@ function MainContainer() {
 
         selectid.textContent = "|" + discription;
         document.getElementById('temperature').textContent = finaltempinc + "°C";
-        document.getElementById('temperature').style.fontSize="25px";
+        document.getElementById('temperature').style.fontSize = "25px";
         selectid.style.marginRight = "5vw";
         selectid.style.fontStyle = "italic";
 
@@ -27,7 +27,7 @@ function MainContainer() {
         const weatherinfo = document.getElementById('weatherinfo');
         weatherinfo.textContent = "Weather Info";
 
-        var timestamp=datajson.sys.sunrise;
+        var timestamp = datajson.sys.sunrise;
         var date = new Date(timestamp * 1000);
         var year = date.getFullYear();
         var month = ('0' + (date.getMonth() + 1)).slice(-2);
@@ -36,63 +36,63 @@ function MainContainer() {
         var minutes = ('0' + date.getMinutes()).slice(-2);
         var seconds = ('0' + date.getSeconds()).slice(-2);
 
-        document.getElementById('sunrise').textContent=hours+":"+minutes+"(IST)"+" Sunrise"
+        document.getElementById('sunrise').textContent = hours + ":" + minutes + "(IST)" + " Sunrise"
 
-        document.getElementById('humidity').textContent=datajson.main.humidity+"%" +"Humidity";
+        document.getElementById('humidity').textContent = datajson.main.humidity + "%" + "Humidity";
 
-        document.getElementById('wind').textContent=datajson.wind.speed+"m/s"+" Wind";
+        document.getElementById('wind').textContent = datajson.wind.speed + "m/s" + " Wind";
 
-        document.getElementById('pressure').textContent=datajson.main.pressure+" hPa "+"Pressure" ;
+        document.getElementById('pressure').textContent = datajson.main.pressure + " hPa " + "Pressure";
 
-        document.getElementById('mainimgtage').src=`https://openweathermap.org/img/wn/${datajson.weather[0].icon}.png`;
+        document.getElementById('mainimgtage').src = `https://openweathermap.org/img/wn/${datajson.weather[0].icon}.png`;
 
         console.log(datajson);
     }
 
     return (
         <div id="maincontainer">
-            <h1 id="title" style={{ padding: "1vw", marginTop: "-10vh", color:"Aqua" }}>Weather App</h1>
-            <div id="input">
-                <p id="temperature" style={{color:"Aqua"}}></p>
-                <h3 id="discription" style={{color:"Aqua"}}></h3>
+            <h1 id="title" style={{ padding: "1vw", color: "Aqua" }}>Weather App</h1>
+            <div id="data-container">
+                <p id="temperature" style={{ color: "Aqua" }}></p>
+                <h3 id="discription" style={{ color: "Aqua" }}></h3>
                 <img id="mainimgtage" src="/mainpage.webp" height={"100px"} width={"100px"}></img>
             </div>
 
-            <h2 id="h2tage" style={{color:"Aqua"}}>Find Weather of your city</h2>
-            <div id="input">
-                
-                
+            <h2 id="h2tage" style={{ color: "Aqua" }}>Find Weather of your city</h2>
+            <div id="input-container">
                 {isTextField ? (
-                    <>
+                    <div>
                         <input className="input 1" id="city" type="text" placeholder="Enter Your City"></input>
-                        <button className="input 2" id="enter" onClick={ButtonHandle}>Enter</button>
-                    </>) : 
-                <div>
-                <h2 id="weatherinfo" style={{color:"Aqua"}}></h2>
-                <div style={{display:"flex"}}>
+                        <button className="input btn" id="enter" onClick={ButtonHandle}>Enter</button>
+                    </div>) :
                     <div>
-                        <div style={{display:"flex", margin:"10px 20px 10px 10px"}}>
-                            <img src="./sunrise.svg" id="sunriseimg"></img>
-                            <h3 id="sunrise" style={{color:"Aqua"}}></h3>
+                        <h2 id="weatherinfo" style={{ color: "Aqua" }}></h2>
+                        <div style={{ display: "flex" }}>
+                            <div>
+                                <div style={{ display: "flex", margin: "10px 20px 10px 10px" }}>
+                                    <img src="./sunrise.svg" id="sunriseimg"></img>
+                                    <h3 id="sunrise" style={{ color: "Aqua" }}></h3>
+                                </div>
+                                <div style={{ display: "flex", margin: "10px 10px 10px 10px" }}>
+                                    <img src="./humidity.svg" id="humidityimg"></img>
+                                    <h3 id="humidity" style={{ color: "Aqua" }}></h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div style={{ display: "flex", margin: "10px 10px 10px 10px" }}>
+                                    <img src="./wind.svg" id="windimg"></img>
+                                    <h3 id="wind" style={{ color: "Aqua" }}></h3>
+                                </div>
+                                <div style={{ display: "flex", margin: "10px 10px 10px 10px" }}>
+                                    <img src="./pressure.svg" id="pressureimg"></img>
+                                    <h3 id="pressure" style={{ color: "Aqua" }}></h3>
+                                </div>
+                            </div>
                         </div>
-                        <div style={{display:"flex", margin:"10px 10px 10px 10px"}}>
-                            <img src="./humidity.svg" id="humidityimg"></img>
-                            <h3 id="humidity" style={{color:"Aqua"}}></h3>
-                        </div>
-                    </div>
-                    <div>
-                        <div style={{display:"flex", margin:"10px 10px 10px 10px"}}>
-                            <img src="./wind.svg" id="windimg"></img>
-                            <h3 id="wind" style={{color:"Aqua"}}></h3>
-                        </div>
-                        <div style={{display:"flex", margin:"10px 10px 10px 10px"}}>
-                            <img src="./pressure.svg" id="pressureimg"></img>
-                            <h3 id="pressure" style={{color:"Aqua"}}></h3>
-                        </div>
-                    </div>
-                </div>
-                </div>}
+                    </div>}
+                
             </div>
+            <marquee id="martag">Made by @melan</marquee>
         </div>
     );
 }
