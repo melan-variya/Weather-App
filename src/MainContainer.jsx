@@ -1,12 +1,16 @@
 import { useState } from "react";
 
 function MainContainer() {
-
     const [isTextField, setTextField] = useState(true);
 
     async function ButtonHandle() {
         setTextField(false)
         const cityName = document.getElementById('city').value;
+        if (cityName === "") {
+            setTextField(true);
+            return;
+        }
+
         const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=21fb93c24fcd6001253d670e24a29a13`);
         const datajson = await data.json();
         const finaltempinc = Math.round(datajson.main.temp - 273);
@@ -19,10 +23,8 @@ function MainContainer() {
         selectid.style.marginRight = "5vw";
         selectid.style.fontStyle = "italic";
 
-
         const h2tag = document.getElementById('h2tage');
         h2tag.textContent = datajson.name + ", " + datajson.sys.country;
-
 
         const weatherinfo = document.getElementById('weatherinfo');
         weatherinfo.textContent = "Weather Info";
@@ -90,7 +92,7 @@ function MainContainer() {
                             </div>
                         </div>
                     </div>}
-                
+
             </div>
             <marquee id="martag">Made by @melan</marquee>
         </div>
